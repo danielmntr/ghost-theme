@@ -1,5 +1,6 @@
 // Load stylesheets
-require("../css/screen.css");
+// require("../css/screen.css");
+require("../css/default.sass");
 
 
 // Load default scripts
