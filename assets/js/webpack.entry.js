@@ -2,7 +2,7 @@
 // require("../css/screen.css");
 require("../css/default.sass");
 
-
 // Load default scripts
-require("./jquery.fitvids.js");
-require("./index.js");
+require("./arctic_scroll.js");
+require("script-loader!./slick.min.js");
+require("./main.js");

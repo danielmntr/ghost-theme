@@ -1,42 +1,28 @@
 var path = require('path');
 var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
-
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
-    entry: [
-        path.join(__dirname, '/assets/js/webpack.entry.js')
-    ],
+    entry:'./assets/js/webpack.entry.js',
     output: {
-        path: path.join(__dirname, '/assets/dist'),
+        path: path.resolve(__dirname, './assets/dist'),
         filename: 'bundle.js'
     },
     module: {
-        loaders: [
-            {
-                test: /\.css$/,
-                loaders: [ 'style', 'css', 'postcss' ]
-            },
-            {
-                test: /\.sass$/,
-                loaders: [ 'style', 'css', 'sass?indentedSyntax' ]
-            },
-            {
-                test: /\.(jpe?g|png|gif|svg)$/i,
-                loaders: [
-                  'file?hash=sha512&digest=hex&name=[hash].[ext]',
-                  'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
-                ]
-            }
+        rules: [
+            { test: /\.css$/, use: ['style-loader', 'css-loader', 'postcss-loader']},
+            {test: /\.sass$/, use: ['style-loader', 'css-loader', 'sass-loader?indentedSyntax', 'postcss-loader']},
+            {test: /\.(jpe?g|png|gif|svg)$/i, use: ['file?hash=sha512&digest=hex&name=[hash].[ext]', 'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false']}
         ]
     },
     plugins: [
-    new ExtractTextPlugin("styles.css"),
-  ],
-    postcss: function() {
-        return [autoprefixer];
-    }
+      new webpack.LoaderOptionsPlugin({
+        options: {
+          context: __dirname,
+          postcss: [ autoprefixer ]
+        }
+      })
+    ],
 }; // end config
 
 // ExtractTextPlugin.extract()

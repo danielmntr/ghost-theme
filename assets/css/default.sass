@@ -1,10 +1,317 @@
-.post
-  .post-header
-    background-color: cyan
-  .post-excerpt
-    font-family: monospace
-    font-size: 2rem
-    .read-more
-      color: cyan
-  .post-meta
-    background-color: cyan
+/* Imports */
+@import slick
+@import slick-theme
+@import icomoon
+@import base-min
+@import grids-min
+@import grids-responsive-min
+
+/* Variables */
+
+// Fonts
+$primary-font: 'Merriweather', Garamond, Times New Roman, serif
+$secondary-font: 'Rubik', Futura, Helvetica, Arial, sans-serif
+$mono-font: 'Space Mono', Monaco, Consolas, monospace
+
+// Colors
+$primary-color: #2e93dd
+$bg-color: #f5f5f5
+$text-color: #3A4145
+$title-color: #2E2E2E
+
+/* Additional purecss configs */
+
+/* Set your content font stack here: */
+html, button, input, select, textarea, .pure-g [class *= "pure-u"]
+  font-family: $primary-font
+
+[class^="pure-u"], [class^="pure-u-md"]
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+
+.wrapper
+  padding: 1em
+
+/* General */
+
+html
+  height: 100%
+  max-height: 100%
+  font-size: 62.5%
+  tap-highlight-color: rgba(0, 0, 0, 0)
+
+body
+  height: 100%
+  max-height: 100%
+  width: 100%
+  letter-spacing: 0.01rem
+  font-size: 1.6rem
+  line-height: 1.9em
+  color: $text-color
+  background-color: $bg-color
+  text-rendering: geometricPrecision
+  margin: 0 auto
+
+::-moz-selection
+  background: #D6EDFF
+::selection
+  background: #D6EDFF
+
+h1, h2, h3,
+h4, h5, h6
+  color: $title-color
+  line-height: 1.15em
+  margin: 0 0 0.4em 0
+  font-family: $secondary-font
+  text-rendering: geometricPrecision
+
+h1
+  font-size: 5rem
+  letter-spacing: -2px
+  text-indent: -3px
+h2
+  font-size: 3.6rem
+  letter-spacing: -1px
+h3
+  font-size: 3rem
+  letter-spacing: -0.6px
+h4
+  font-size: 2.5rem
+h5
+  font-size: 2rem
+h6
+  font-size: 2rem
+
+a
+  color: $text-color
+  padding-bottom: .4rem
+  border-bottom: 1px solid $primary-color
+  transition: color 0.3s ease
+  text-decoration: none
+  &:hover
+    color: #111
+    background-color: rgba($primary-color, .125)
+
+p, ul, ol, dl
+  margin: 0 0 1.75em 0
+  text-rendering: geometricPrecision
+
+ol, ul
+  padding-left: 3rem
+
+ol ol, ul ul,
+ul ol, ol ul
+  margin: 0 0 0.4em 0
+  padding-left: 2em
+
+dl dt
+  float: left
+  width: 180px
+  overflow: hidden
+  clear: left
+  text-align: right
+  text-overflow: ellipsis
+  white-space: nowrap
+  font-weight: 700
+  margin-bottom: 1em
+
+dl dd
+  margin-left: 200px
+  margin-bottom: 1em
+
+li
+  margin: 0.4em 0
+
+li li
+  margin: 0
+
+li > p:last-of-type
+  margin-bottom: 0
+
+strong
+  font-weight: 700
+
+mark
+  background-color: $primary-color
+
+blockquote::before
+  @extend .icon, .icon-quote:before
+  position: absolute
+  left: 0
+  right: 0
+  margin: -4rem auto
+  font-size: 3rem
+  color: $text-color
+
+blockquote
+  position: relative
+  text-align: center
+  margin: 7rem 5rem 5rem 5rem
+  p
+    display: inline
+    color: #111
+    font-style: italic
+    &:first-child::before, &:last-child::after
+      display: block
+      content: ""
+      height: 1rem
+      margin: auto
+    &:first-child::before
+      width: 20rem
+      border-top: 1px solid $primary-color
+    &:last-child::after
+      width: 12rem
+      border-bottom: 1px solid $primary-color
+  cite
+    display: block
+    text-align: center
+    font-style: normal
+    font-weight: 900
+    margin-top: 1rem
+    &::before
+      display: block
+      content: ""
+      height: 1rem
+      margin: auto
+      width: 12rem
+      border-top: 1px solid $primary-color
+
+code
+  font-family: $mono-font
+  font-size: 1.6rem
+
+figure
+  margin: 0
+
+img
+  display: block
+  max-width: 100%
+  height: auto
+  margin: 2rem auto
+
+/* Util */
+
+.clearfix:after
+  content: ""
+  display: table
+  clear: both
+
+.max-width
+  max-width: 1200px
+  margin-left: auto
+  margin-right: auto
+
+/* Index */
+
+.index-header
+  height: 500px
+
+.featured-article
+  height: 260px
+  padding: 180px 0 60px 0
+  background: 0 0 no-repeat
+  background-size: cover
+
+/* Loop */
+
+.loop-list
+
+.loop-article
+  @extend .pure-u-1, .pure-u-md-1-4
+  perspective: 100px
+  margin-bottom: 1rem
+  &:nth-child(1), &:nth-child(2)
+    @extend .pure-u-1, .pure-u-md-1-2
+
+  figure
+    display: inline-block
+    background: 0 0 no-repeat scroll center
+    background-size: cover
+    height: 300px
+    padding: 2em
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+    filter: sepia(0.2)
+    transition: transform 0.3s 0.05s ease-in-out, filter 2s 0s ease
+    &:hover
+      filter: saturate(0.5)
+      transform: translateZ(2px)
+      z-index: 999
+    &:hover > header, &:hover > section, &:hover > footer
+      opacity: 1
+      transform: translateY(0%)
+      transition: opacity 0.4s ease-in-out, transform 0.1s ease
+    &::before
+      content: ""
+      position: absolute
+      height: 300px
+      width: auto
+      background-color: red
+
+  section, footer
+    opacity: 0
+    transform: translateY(-100%)
+  header
+    transition: opacity 0.3s 0.1s ease-in-out
+    padding-bottom: 1rem
+    h2
+      a
+        font-family: $primary-font
+        color: $bg-color
+
+  section
+    transition: opacity 0.2s 0.1s ease-in-out, transform 1s ease-out
+    padding-bottom: 1rem
+    p
+      display: inline
+      padding: .1em 0
+      background-color: $bg-color
+    a.read-more
+  footer
+    transition: opacity 0.9s 0.1s ease-in-out
+    color: $bg-color
+    a
+      color: $bg-color
+      font-weight: 900
+    p
+    time
+
+
+/* Post */
+
+
+.post-head
+  height: 100vh
+  background: 0 0 no-repeat fixed
+  background-size: cover
+  margin-bottom: 6rem
+  border-bottom: 5rem $title-color solid
+  filter: sepia(0.2)
+  .post-figure-filter
+    height: 100vh
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%)
+    h1
+      position: absolute
+      bottom: 10rem
+      left: 0
+      right: 0
+      text-align: center
+      font-family: $primary-font
+      font-size: 8rem
+      color: $bg-color
+
+.post-meta
+  p
+    font-family: $secondary-font
+
+.post-content
+  box-sizing: border-box
+  p:first-of-type::first-letter
+    font-size: 10rem
+    font-weight: 900
+    line-height: 5.7rem
+    float: left
+    text-transform: uppercase
+    margin: 1.6rem .8rem 0 0
+  a
+    font-weight: 900
