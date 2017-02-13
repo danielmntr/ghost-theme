@@ -10,9 +10,15 @@ module.exports = {
     },
     module: {
         rules: [
-            { test: /\.css$/, use: ['style-loader', 'css-loader', 'postcss-loader']},
-            {test: /\.sass$/, use: ['style-loader', 'css-loader', 'sass-loader?indentedSyntax', 'postcss-loader']},
-            {test: /\.(jpe?g|png|gif|svg)$/i, use: ['file?hash=sha512&digest=hex&name=[hash].[ext]', 'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false']}
+            {
+                test: /\.css$/, use: ['style-loader', 'css-loader', 'postcss-loader']
+            },
+            {
+                test: /\.sass$/, use: ['style-loader', 'css-loader', 'sass-loader?indentedSyntax', 'postcss-loader']
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i, use: ['file?hash=sha512&digest=hex&name=[hash].[ext]', 'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false']
+            }
         ]
     },
     plugins: [
