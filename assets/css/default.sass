@@ -1,26 +1,17 @@
 /* Imports */
+
 @import slick
 @import slick-theme
+
 @import icomoon
+
 @import base-min
 @import grids-min
 @import grids-responsive-min
 
-/* Variables */
+@import variables
 
-// Fonts
-$primary-font: 'Merriweather', Garamond, Times New Roman, serif
-$secondary-font: 'Rubik', Futura, Helvetica, Arial, sans-serif
-$mono-font: 'Space Mono', Monaco, Consolas, monospace
-
-// Colors
-$primary-color: #2e93dd
-$bg-color: #f5f5f5
-$text-color: #3A4145
-$title-color: #2E2E2E
-
-$lineargrad-tb: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%)
-$lineargrad-bt: linear-gradient(to top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%)
+@import next-prev 
 
 /* Additional purecss configs */
 
@@ -84,17 +75,18 @@ h4
 h5
   font-size: 2rem
 h6
-  font-size: 2rem
+  font-size: 1.6rem
 
 a
   color: $text-color
   padding-bottom: .4rem
   border-bottom: 1px solid $primary-color
-  transition: color 0.3s ease
+  transition: color 0.3s ease, background-color 0.3s ease
   text-decoration: none
   &:hover
     color: #111
     background-color: rgba($primary-color, .125)
+    transition: color 0.3s ease, background-color 0.3s ease
 
 p, ul, ol, dl
   margin: 0 0 1.75em 0
@@ -201,8 +193,12 @@ img
 
 .max-width
   max-width: 1200px
-  margin-left: auto
-  margin-right: auto
+  margin: 0 auto
+
+/* Default */
+
+#footer
+  background: $text-color
 
 /* Index */
 
@@ -225,8 +221,6 @@ img
   margin-bottom: 1rem
   &:nth-child(1), &:nth-child(2)
     @extend .pure-u-1, .pure-u-md-1-2
-    &:hover
-      @extend .pure-u-md-1
     
 
   figure
@@ -288,39 +282,94 @@ img
 
 /* Post */
 
-
 .post-head
   height: 100vh
+  overflow: hidden
   background: 0 0 no-repeat fixed
   background-size: cover
   margin-bottom: 6rem
   border-bottom: 5rem $title-color solid
   filter: sepia(0.2)
-  .post-figure-filter
+
+  .post-head-wrap
+    position: relative
     height: 100vh
+    text-align: center
+    box-sizing: border-box
     background: $lineargrad-tb
-    h1
+
+    .post-title
       position: absolute
-      bottom: 10rem
+      max-width: 1024px
       left: 0
       right: 0
-      text-align: center
-      font-family: $primary-font
-      font-size: 8rem
-      color: $bg-color
+      bottom: 4rem
+      margin: 0 auto
+      pointer-events: none
+
+      h1
+        margin: 0 auto
+        font-size: 8rem
+        color: $bg-color
+        padding-bottom: 10rem
+      a
+        pointer-events: auto
+        background: none
+        border: none
+        color: $bg-color
+        font-size: 4rem
+        &:hover
+          color: $primary-color
+        span
+          transition: transform 2s ease-in-out
+          &:hover
+            transform: rotate(180deg)
+            transition: transform 1s ease-out
+            
+
 
 .post-meta
   p
     font-family: $secondary-font
+  .tag-prefix
+    color: $primary-color
 
 .post-content
   box-sizing: border-box
-  p:first-of-type::first-letter
-    font-size: 10rem
-    font-weight: 900
-    line-height: 5.7rem
-    float: left
-    text-transform: uppercase
-    margin: 1.6rem .8rem 0 0
-  a
-    font-weight: 900
+
+  section
+    margin-bottom: 6rem
+
+  .output
+    p:first-of-type::first-letter
+      font-size: 10rem000001
+      font-weight: 900
+      line-height: 5.7rem
+      float: left
+      text-transform: uppercase
+      margin: 1.6rem .8rem 0 0
+    a
+      font-weight: 900
+    iframe
+      max-width: 100%
+
+  .share
+    width: 100%
+    text-align: center
+    font-size: 3rem
+    
+    a 
+      border: none
+      &:hover
+        color: $primary-color
+        background: none
+
+  .comments
+    text-align: center
+
+    #disqus_thread
+
+.read-next
+
+
+

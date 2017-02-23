@@ -1,90 +1,93 @@
-
 {{!< default}}
+{{!-- The comment above "< default" means - insert everything in this file into the {{{body}}} of the default.hbs
+template, containing the blog header/footer. --}}
 
-{{!-- The comment above "< default" means - insert everything in this file into
-the {{{body}}} of the default.hbs template, containing the blog header/footer. --}}
-
-{{!-- Everything inside the #post tags pulls data from the post --}}
+{{! Everything inside the #post tags pulls data from the post }}
 {{#post}}
 
 <header class="post-head {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}">
-  <div class="post-figure-filter">
-      <h1 class="max-width">{{title}}</h1>
+<figure class="post-head-wrap">
+  <div class="post-title">
+    <h1>{{title}}</h1>
+    <a href="#content" class="arctic_scroll" data-offset="-500">
+      <span class="icon-lifesaver"></span>
+    </a>
   </div>
+</figure>
 </header>
 
-<main class="content max-width" role="main">
+<main id="content" class="content max-width" role="main">
+  
   <article class="{{post_class}} pure-g">
-
+    
     <section class="post-meta pure-u-1 pure-u-md-1-4">
       <div class="wrapper">
         {{#author}}
         <p>by <a href="{{url}}">{{name}}</a></p>
         {{/author}}
-        <p><time class="post-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}<br/>({{date published_at timeago="true"}})</time></p>
-        <p>/ {{tags separator="<br/>/ "}}</p>
+        <p>
+          <time class="post-date" datetime="{{date format=" YYYY-MM-DD "}}">{{date format="DD MMMM YYYY"}}<br/>({{date published_at timeago="true"}})</time>
+        </p>
+        <p><span class="tag-prefix">/</span> {{tags separator="<span class='tag-prefix'><br>/ </span>"}}</p>
       </div>
     </section>
 
     <section class="post-content pure-u-1 pure-u-md-1-2">
       <div class="wrapper">
 
-        {{! Outputs the post content}}
-        {{content}}
-
-      </div>
-
-      <footer class="post-footer">
+        <section class="output">
+          {{! Outputs the post content}}
+          {{content}}
+        </section>
 
         <section class="share">
-          <h4>Share this post</h4>
-          <a class="icon-twitter" href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+          <h4>Share this article</h4>
+          <a class="icon-twitter" href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute=" true "}}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
             <span class="hidden">Twitter</span>
           </a>
-          <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+          <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute=" true "}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
             <span class="hidden">Facebook</span>
           </a>
-          <a class="icon-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+          <a class="icon-googleplus" href="https://plus.google.com/share?url={{url absolute=" true "}}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
             <span class="hidden">Google+</span>
           </a>
         </section>
 
-        <section class="post-meta pure-u-1 pure-u-md-1-4">
+        <section class="comments">
+          <h4>Comments</h4>
+          <div id="disqus_thread"></div>
         </section>
-        {{!-- Email subscribe form at the bottom of the page --}}
-        {{#if @labs.subscribers}}
-        <section class="gh-subscribe">
-          <h3 class="gh-subscribe-title">Subscribe to {{@blog.title}}</h3>
-          <p>Get the latest posts delivered right to your inbox.</p>
-          {{subscribe_form placeholder="Your email address"}}
-          <span class="gh-subscribe-rss">or subscribe <a href="http://cloud.feedly.com/#subscription/feed/{{@blog.url}}/rss/">via RSS</a> with Feedly!</span>
-        </section>
-        {{/if}}
 
-      </footer>
+      </div>
     </section>
 
   </article>
+
 </main>
 
-{{!-- Links to Previous/Next posts --}}
-<aside class="read-next">
+{{! Links to Previous/Next posts}}
+
+{{> next-prev}}
+
+<aside class="read-next pure-g">
+
   {{#next_post}}
-  <a class="read-next-story {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
+  <a class="read-next-story {{#if prev_post}}pure-u-1 pure-u-md-1-2{{else}}pure-u-1{{/if}} {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
     <section class="post">
       <h2>{{title}}</h2>
       <p>{{excerpt words="19"}}&hellip;</p>
     </section>
   </a>
   {{/next_post}}
+
   {{#prev_post}}
-  <a class="read-next-story prev {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
+  <a class="read-next-story prev pure-u-1 pure-u-md-1-2 {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
     <section class="post">
       <h2>{{title}}</h2>
       <p>{{excerpt words="19"}}&hellip;</p>
     </section>
   </a>
   {{/prev_post}}
-</aside>
 
+</aside>
 {{/post}}
