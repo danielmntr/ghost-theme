@@ -1,4 +1,4 @@
-/* Scroll */
+/* arctic scroll */
 
 (function ($) {
     $.fn.arctic_scroll = function (options) {
@@ -37,7 +37,36 @@ $(function(){
     });
 });
 
-/* slick */
+/* hide cover img chevron */
+
+$(document).scroll(function() {
+    var y = $(this).scrollTop();
+    var scrollOffset = $('#scroll-to-text').offset().top + (-350);
+
+    if (y > scrollOffset) {
+        $('#scroll-to-text').addClass('hide');
+    }
+    else {
+        $('#scroll-to-text').removeClass('hide');
+    }
+    
+});
+
+/* nav hide/show */
+
+$(document).scroll(function() {
+    var y = $(this).scrollTop();
+    if (y > 800) {
+        $('#navigation').addClass('show');
+        $('#navigation').removeClass('hide');
+    }
+    else {
+        $('#navigation').addClass('hide');
+        $('#navigation').removeClass('show');
+    }
+});
+
+/* slick carousel */
 
 $(document).ready(function(){
   $('.index-header').slick({

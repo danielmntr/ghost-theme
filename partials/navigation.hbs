@@ -1,17 +1,8 @@
-<div class="nav">
-    <h3 class="nav-title">Menu</h3>
-    <a href="#" class="nav-close">
-        <span class="hidden">Close</span>
-    </a>
-    <ul>
-        {{#foreach navigation}}
-            <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}" role="presentation"><a href="{{url absolute="true"}}">{{label}}</a></li>
-        {{/foreach}}
-    </ul>
-    {{#if @labs.subscribers}}
-        <a class="subscribe-button" href="{{@blog.url}}/subscribe/">Subscribe</a>
-    {{else}}
-        <a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/">Subscribe</a>
-    {{/if}}
-</div>
-<span class="nav-cover"></span>
+<section id="top-navigation" class="nav">
+    <div class="wrapper max-width">
+        <h1>{{meta_title}}</h1>
+        <i>
+            <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 20 20"><path d="M16.4 9h-12.8c-0.6 0-0.6 0.4-0.6 1s0 1 0.6 1h12.8c0.6 0 0.6-0.4 0.6-1s0-1-0.6-1zM16.4 13h-12.8c-0.6 0-0.6 0.4-0.6 1s0 1 0.6 1h12.8c0.6 0 0.6-0.4 0.6-1s0-1-0.6-1zM3.6 7h12.8c0.6 0 0.6-0.4 0.6-1s0-1-0.6-1h-12.8c-0.6 0-0.6 0.4-0.6 1s0 1 0.6 1z"/></svg>
+        </i>
+    </div>
+</section>

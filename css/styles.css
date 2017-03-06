@@ -1,9 +1,0 @@
- html, button, input, select, textarea,
-    .pure-g [class *= "pure-u"] {
-        /* Set your content font stack here: */
-        font-family: 'Space Mono', sans-serif;
-    }
-
-[class *= "pure-u"] {
-    box-sizing: content-box;
-}

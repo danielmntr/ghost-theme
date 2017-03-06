@@ -1,6 +1,6 @@
 /* Basic */
 
-.next-prev
+#navigation
     .nav-reveal
         a
             position: fixed
@@ -14,45 +14,50 @@
             width: 50px
             height: 120px
             border: none
-            
-            -webkit-transition: width 0.4s, background-color 0.4s
             transition: width 0.4s, background-color 0.4s
             &:hover
                 width: 260px
+                background-color: $text-color
+                svg
+                    fill: #111
             &.prev
                 left: 0
-                span 
+                svg
+                    left: 0
                     margin-left: 30px
                     float: left
                 div
                     margin-left: 50px
             &.next
                 right: 0
-                span 
+                svg
+                    right: 0
                     margin-right: 30px
                     float: right
                 div
                     margin-right: 50px
 
-            & > span
-                width: 20px
-                line-height: 120px
-
+            svg
+                position: absolute
+                top: 50%
+                transform: translateY(-50%)
+                fill: $text-color
             div
                 position: absolute
                 box-sizing: border-box
-                padding: 0 20px
+                padding: 1em 2em
                 width: 210px
                 top: 50%
-                -webkit-transform: translateY(-50%)
                 transform: translateY(-50%)
+                font-size: smaller
 
                 h6
                     margin: 0
+                    color: $bg-color
                 p 
                     margin: 0
                     font-family: $secondary-font
-                    font-size: 1em
+                    color: $bg-color
 
 .nav-reveal a.prev div
 	left: 0

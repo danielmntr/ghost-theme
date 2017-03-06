@@ -43,21 +43,24 @@
 </head>
 <body class="{{body_class}}">
 
-  {{! The blog navigation links }}
-  {{!navigation}}
+  {{! The blog's top navigation }}
+  {{navigation}}
 
   {{! The body of the page (index/post/page) goes here }}
   {{{body}}}
 
   <footer id="footer">
     <div>
+      <a href="#content" class="arctic_scroll" data-offset="-400">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M15.5 12.5c-0.4 0.4-1 0.5-1.6 0l-3.9-3.7-3.9 3.7c-0.5 0.5-1.1 0.4-1.6 0-0.4-0.4-0.4-1.2 0-1.6 0.4-0.4 4.7-4.5 4.7-4.5 0.2-0.2 0.5-0.3 0.8-0.3s0.6 0.1 0.8 0.3c0 0 4.3 4.1 4.7 4.5s0.4 1.2 0 1.6z"/></svg>
+      </a>
       <p class="copyright"><span>Made by {{@blog.title}}.</span> <span>Powered by Ghost.</span></p>
     </div>
   </footer>
 
   {{! jQuery }}
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-
+  <script type="text/javascript" src="{{asset "js/jquery-3.1.1.min.js"}}"></script>
+  <script type="text/javascript" src="{{asset "js/main.js"}}"></script>
   {{ghost_foot}}
 
   {{! Webpack assets }}

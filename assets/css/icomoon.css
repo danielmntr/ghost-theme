@@ -125,3 +125,9 @@
 .icon-chevron-with-circle-up:before {
   content: "\e90f";
 }
+.icon-menu:before {
+  content: "\e120";
+}
+.icon-ellipsis:before {
+  content: "\e129";
+}
