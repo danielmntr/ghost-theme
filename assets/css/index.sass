@@ -1,0 +1,76 @@
+/* Index */
+
+#index-header
+  #blog-cover
+    height: 30vh
+    width: 100vw
+    background-size: cover
+    background-position: center
+    margin-bottom: 6rem
+    border-bottom: 5rem $secondary-color solid
+
+.featured-article
+  figure
+    max-width: 100%
+    height: 400px
+    background-size: cover
+    background-position: center
+  h2
+    max-width: 600px
+    font-family: $primary-font
+  .featured-excerpt
+    a 
+      @extend .clean-a
+  .featured-meta
+    font-family: $secondary-font
+    font-size: smaller
+
+
+/* Loop */
+
+.pagination
+  text-align: center
+  font-family: $secondary-font
+  font-size: smaller
+  margin: 1em 0
+
+.loop-list
+
+.loop-article
+  @extend .pure-u-1, .pure-u-md-1-4
+  margin-bottom: 1rem
+  &:nth-child(1), &:nth-child(2)
+    @extend .pure-u-1, .pure-u-md-1-2
+    figure
+      max-width: 100%
+      height: 200px
+      background-size: cover
+      background-position: center
+    header
+      margin: 2em 0 0 0 
+      h3
+        font-family: $primary-font
+        text-align: center
+        font-size: 3rem
+    section
+      p 
+        font-family: $primary-font
+        font-size: 1.6rem
+    footer
+      display: block
+      p 
+        font-family: $secondary-font
+        font-size: smaller
+
+  header
+    h3
+      font-family: $secondary-font
+      font-size: 1.6rem
+
+  section
+    p 
+      font-family: $secondary-font
+      font-size: smaller
+  footer
+    display: none
+

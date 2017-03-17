@@ -17,9 +17,9 @@
             transition: width 0.4s, background-color 0.4s
             &:hover
                 width: 260px
-                background-color: $text-color
+                background-color: $primary-color
                 svg
-                    fill: #111
+                    fill: $bg-color
             &.prev
                 left: 0
                 svg
@@ -49,15 +49,16 @@
                 width: 210px
                 top: 50%
                 transform: translateY(-50%)
-                font-size: smaller
-
                 h6
                     margin: 0
                     color: $bg-color
+                    font-size: 0.81em
                 p 
                     margin: 0
                     font-family: $secondary-font
                     color: $bg-color
+                    font-size: 0.8em
+
 
 .nav-reveal a.prev div
 	left: 0

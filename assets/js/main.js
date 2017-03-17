@@ -37,6 +37,54 @@ $(function(){
     });
 });
 
+/* expand top nav */
+
+$(document).ready(function() {
+    var clicked = false;
+    $("#menu-button").click(function() {
+        if (!clicked) {
+            $('#top-navigation').addClass('expanded');
+            $('#top-navigation').removeClass('minified');
+            $('#menu-open').removeClass('show')
+            $('#menu-open').addClass('hide')
+            $('#menu-closed').removeClass('hide')
+            $('#menu-closed').addClass('show')
+            clicked = true;
+        } else {
+            $('#top-navigation').addClass('minified');
+            $('#top-navigation').removeClass('expanded');
+            $('#menu-open').removeClass('hide')
+            $('#menu-open').addClass('show')
+            $('#menu-closed').removeClass('show')
+            $('#menu-closed').addClass('hide')
+            clicked = false;
+        }
+    });
+});
+
+/* expand search box */
+
+$(document).ready(function() {
+
+    $("#search-placeholder").click(function(e) {
+        $('#search').addClass('show search-expanded');
+        $('#search').removeClass('hide search-minified');
+        $("#search-placeholder").addClass('hide');
+        $("#search-placeholder").removeClass('show');
+        e.stopPropagation()
+    });
+
+    $(document).click(function(e) {
+        if ($(e.target).is("#search") === false) {
+            $('#search').addClass('hide search-minified');
+            $('#search').removeClass('show search-expanded');
+            $("#search-placeholder").addClass('show');
+            $("#search-placeholder").removeClass('hide');
+        }
+    });
+
+});
+
 /* hide cover img chevron */
 
 $(document).scroll(function() {
@@ -56,7 +104,7 @@ $(document).scroll(function() {
 
 $(document).scroll(function() {
     var y = $(this).scrollTop();
-    if (y > 800) {
+    if (y > 600) {
         $('#navigation').addClass('show');
         $('#navigation').removeClass('hide');
     }
@@ -66,16 +114,31 @@ $(document).scroll(function() {
     }
 });
 
-/* slick carousel */
+/* expand share icon */
 
-$(document).ready(function(){
-  $('.index-header').slick({
-  dots: true,
-  draggable: true,
-  infinite: true,
-  fade: true,
-  autoplay: true,
-  });
+$(document).ready(function() {
+    var clicked = false;
+    var hovered = false;
+    $("#share-icon").click(function() {
+        if (!clicked) {
+            $('.share-link').addClass('show');
+            $('.share-link').removeClass('hide');
+            clicked = true;
+        } else {
+            $('.share-link').addClass('hide');
+            $('.share-link').removeClass('show');
+            clicked = false;
+        }
+    });
+    $(".share-link").hover(function() {
+        if (!hovered && clicked) {
+            $(this).parents('a').find('.share-span').addClass('show');
+            $(this).parents('a').find('.share-span').removeClass('hide');
+            hovered = true;
+        } else {
+            $(this).parents('a').find('.share-span').addClass('hide');
+            $(this).parents('a').find('.share-span').removeClass('show');
+            hovered = false;
+        }
+    });
 });
-
-

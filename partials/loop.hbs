@@ -1,29 +1,32 @@
 {{!-- Previous/next page links - only displayed on page 2+ --}}
-<div class="">
+<section class="pure-g">
+  <div class="pure-u-1">
     {{pagination}}
-</div>
+  </div>
+</section>
 
 {{!-- This is the post loop - each post will be output using this markup --}}
   <section class="loop-list pure-g">
   {{#foreach posts}}
   <article class="{{post_class}} loop-article">
     <div class="wrapper">
-    <figure class="{{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}">
+
+      <figure style="background-image: url({{image}})"></figure>
+
       <header>
-          <h2><a href="{{url}}">{{title}}</a></h2>
+          <h3><a class="clean-a" href="{{url}}">{{title}}</a></h3>
       </header>
+
       <section>
-          <p>{{excerpt words="20"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
+          <p>{{excerpt words="40"}} <a class="clean-a read-more" href="{{url}}">&raquo;</a></p>
       </section>
+
       <footer>
           <p>
-            {{author}}
-            {{tags prefix=" on "}}
-            <time class="" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time>
+            {{author}} <span class="tag-prefix">/</span> <time class="post-date" datetime="{{date format=" YYYY-MM-DD "}}">{{date format="DD MMMM YYYY"}}</time> <span class="tag-prefix">/</span> {{tags separator="<span class='tag-prefix'> / </span>"}}
           </p>
       </footer>
 
-    </figure>
     </div>
   </article>
   {{/foreach}}
@@ -31,3 +34,5 @@
 
 {{!-- Previous/next page links - displayed on every page --}}
 {{pagination}}
+
+{{!-- <figure class="{{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}"> --}}

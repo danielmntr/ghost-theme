@@ -1,21 +1,39 @@
 {{!< default}}
 {{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
 
+{{#get "posts" limit="1" include="tags, author, image" filter="featured:true"}}
+{{#foreach posts}}
+
 {{! The featured header }}
-<header class="index-header max-width pure-g">
-	<div class="wrapper">
-	{{#get "posts" limit="4" filter="featured:true"}}
-	{{#foreach posts}}
 
-		<div class="featured-article pure-u-1 {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}">
-			<h2><a href="{{url}}">{{title}}</a></h2>
-			<p>{{excerpt}}</p>
-		</div>
-
-	{{/foreach}}
-	{{/get}}
-</div>
+<header id="index-header" class="pure-g">
+	<figure id="blog-cover" style="{{#if @blog.cover}}background-image: url({{@blog.cover}}){{else}}background-image: url({{image}}){{/if}}"></figure>
 </header>
+
+<div class="pure-g max-width">
+	<article class="featured-article">
+
+		<section class="pure-u-1 pure-u-md-1-2">
+			<div class="wrapper">
+				<figure style="background-image: url({{image}})"></figure>
+			</div>
+		</section>
+
+		<section class="pure-u-1 pure-u-md-1-2">
+			<div class="wrapper">
+				<h2><a class="clean-a" href="{{url}}">{{title}}</a></h2>
+				<p class="featured-excerpt">{{excerpt words="60"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
+				<p class="featured-meta">{{author}} <span class="tag-prefix">/</span> <time class="post-date" datetime="{{date format=" YYYY-MM-DD "}}">{{date format="DD MMMM YYYY"}}</time> <span class="tag-prefix">/</span> {{tags separator="<span class='tag-prefix'><br>/ </span>"}}</p>
+			</div>
+		</section>
+
+	</article>
+</div>
+
+{{/foreach}}
+{{/get}}
+	
+
 
 {{!-- The main content area on the homepage --}}
 <main class="content max-width" role="main">
