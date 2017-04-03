@@ -45,42 +45,35 @@ $(document).ready(function() {
         if (!clicked) {
             $('#top-navigation').addClass('expanded');
             $('#top-navigation').removeClass('minified');
-            $('#menu-open').removeClass('show')
-            $('#menu-open').addClass('hide')
-            $('#menu-closed').removeClass('hide')
-            $('#menu-closed').addClass('show')
+            $('#menu-open').removeClass('show');
+            $('#menu-open').addClass('hide');
+            $('#menu-closed, #blog-description, #menu-items').removeClass('hide');
+            $('#menu-closed, #blog-description, #menu-items').addClass('show');
             clicked = true;
         } else {
             $('#top-navigation').addClass('minified');
             $('#top-navigation').removeClass('expanded');
-            $('#menu-open').removeClass('hide')
-            $('#menu-open').addClass('show')
-            $('#menu-closed').removeClass('show')
-            $('#menu-closed').addClass('hide')
+            $('#menu-open').removeClass('hide');
+            $('#menu-open').addClass('show');
+            $('#menu-closed, #blog-description, #menu-items').removeClass('show');
+            $('#menu-closed, #blog-description, #menu-items').addClass('hide');
             clicked = false;
         }
     });
 });
 
-/* expand search box */
+/* expand & close search box */
 
 $(document).ready(function() {
 
     $("#search-placeholder").click(function(e) {
-        $('#search').addClass('show search-expanded');
-        $('#search').removeClass('hide search-minified');
-        $("#search-placeholder").addClass('hide');
-        $("#search-placeholder").removeClass('show');
-        e.stopPropagation()
+        $('#search,#search-box').addClass('show');
+        $('#search,#search-box').removeClass('hidden hide');
     });
 
-    $(document).click(function(e) {
-        if ($(e.target).is("#search") === false) {
-            $('#search').addClass('hide search-minified');
-            $('#search').removeClass('show search-expanded');
-            $("#search-placeholder").addClass('show');
-            $("#search-placeholder").removeClass('hide');
-        }
+    $("#search-close").click(function(e) {
+        $('#search,#search-box').removeClass('show');
+        $('#search,#search-box').addClass('hide hidden');
     });
 
 });
@@ -141,4 +134,15 @@ $(document).ready(function() {
             hovered = false;
         }
     });
+});
+
+/* search function */
+
+$(document).ready(function(){
+    $("#search-field").ghostHunter({
+        results: "#search-results-output",
+        includepages: true,
+        onKeyUp: true,
+        result_template : "<a href='{{link}}'><p>{{title}}<p></a>"
+    });  
 });

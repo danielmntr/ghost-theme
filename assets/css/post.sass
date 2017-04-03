@@ -5,8 +5,8 @@
   overflow: hidden
   background: 0 0 no-repeat fixed
   background-size: cover
-  margin-bottom: 6rem
-  border-bottom: 5rem $secondary-color solid
+  margin-bottom: 6em
+  border-bottom: 5em $secondary-color solid
 
   .post-head-wrap
     position: relative
@@ -15,8 +15,7 @@
     box-sizing: border-box
     background: $lineargrad-tb
     
-
-       
+      
     .post-scroll-wrap
       position: absolute
       max-width: 800px
@@ -43,19 +42,24 @@
 #post-title
   h1
     text-align: center
+
 #post-meta
-  p
+  span
     font-family: $secondary-font
-    font-size: smaller
+    @extend .smaller
+  .post-meta-author, .post-meta-date, .post-meta-tags
+    display: block
 
   .tag-prefix
     color: $primary-color
   
   #meta-share
+    margin: 1em 0
     a 
       display: block
       position: relative
       height: 30px
+      
       svg
         position: absolute
         margin-top: 0
@@ -89,12 +93,30 @@
       .share-link
         transition: opacity .5s ease-in-out
 
+@media screen and (max-width: 48em)
+  #post-meta
+    text-align: center
+  #meta-share
+     display: none
+
 
 #post-content
   box-sizing: border-box
   section
     margin-bottom: 6rem
 
+  .output
+    a
+      font-weight: 900
+    iframe
+      max-width: 100%
+    
+  #comments
+    text-align: center
+    h3
+      font-family: $primary-font
+
+@media screen and (min-width: 48em)
   .output
     p:first-of-type::first-letter
       font-size: 10rem
@@ -103,34 +125,6 @@
       float: left
       text-transform: uppercase
       margin: 1.6rem .8rem 0 0
-    a
-      font-weight: 900
-    iframe
-      max-width: 100%
-    img
-
-  #share
-    width: 100%
-    text-align: center
-    font-size: 3rem
-    h4
-      font-family: $primary-font
-    a 
-      border: none
-      &:hover
-        background: none
-      svg
-        fill: $text-color
-        transition: fill .5s ease
-        &:hover
-          fill: #111
-
-  #comments
-    text-align: center
-    h4
-      font-family: $primary-font
-
-.read-next
 
 #post-related
   padding: 0 1em

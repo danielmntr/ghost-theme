@@ -15,16 +15,18 @@
     height: 400px
     background-size: cover
     background-position: center
-  h2
+  h3
     max-width: 600px
     font-family: $primary-font
   .featured-excerpt
-    a 
-      @extend .clean-a
+
   .featured-meta
     font-family: $secondary-font
-    font-size: smaller
 
+@media screen and (max-width: 48em)
+  .featured-article
+    figure
+      height: 200px
 
 /* Loop */
 
@@ -39,6 +41,14 @@
 .loop-article
   @extend .pure-u-1, .pure-u-md-1-4
   margin-bottom: 1rem
+  header
+    h6
+      font-family: $secondary-font
+  section
+    p 
+      font-family: $secondary-font
+  footer
+    display: none
   &:nth-child(1), &:nth-child(2)
     @extend .pure-u-1, .pure-u-md-1-2
     figure
@@ -48,29 +58,16 @@
       background-position: center
     header
       margin: 2em 0 0 0 
-      h3
+      h6
+        @extend h3
         font-family: $primary-font
         text-align: center
-        font-size: 3rem
     section
       p 
         font-family: $primary-font
-        font-size: 1.6rem
     footer
       display: block
       p 
         font-family: $secondary-font
-        font-size: smaller
 
-  header
-    h3
-      font-family: $secondary-font
-      font-size: 1.6rem
-
-  section
-    p 
-      font-family: $secondary-font
-      font-size: smaller
-  footer
-    display: none
 

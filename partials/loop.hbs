@@ -14,7 +14,7 @@
       <figure style="background-image: url({{image}})"></figure>
 
       <header>
-          <h3><a class="clean-a" href="{{url}}">{{title}}</a></h3>
+          <h6><a class="clean-a" href="{{url}}">{{title}}</a></h6>
       </header>
 
       <section>
@@ -22,7 +22,7 @@
       </section>
 
       <footer>
-          <p>
+          <p class="smaller">
             {{author}} <span class="tag-prefix">/</span> <time class="post-date" datetime="{{date format=" YYYY-MM-DD "}}">{{date format="DD MMMM YYYY"}}</time> <span class="tag-prefix">/</span> {{tags separator="<span class='tag-prefix'> / </span>"}}
           </p>
       </footer>
@@ -31,6 +31,7 @@
   </article>
   {{/foreach}}
   </section>
+
 
 {{!-- Previous/next page links - displayed on every page --}}
 {{pagination}}

@@ -31,6 +31,16 @@ body
   margin: 0 auto
   padding-top: 70px
 
+@media screen and (max-width: 48em)
+  body
+    font-size: 1.4rem
+    line-height: 1.9em
+
+@media screen and (max-width: 35.5em)
+  body
+    font-size: 1.2rem
+    line-height: 1.9em
+
 ::-moz-selection
   background: rgba($primary-color, .125)
 ::selection
@@ -46,7 +56,7 @@ h4, h5, h6
   
 
 h1
-  font-size: 5rem
+  font-size: 4.8rem
   letter-spacing: -2px
   text-indent: -3px
 h2
@@ -61,6 +71,16 @@ h5
   font-size: 2rem
 h6
   font-size: 1.6rem
+
+@media only screen and (max-width: 768px)
+  h1
+    font-size: 3.6rem
+  h2
+    font-size: 3rem
+  h3
+    font-size: 2.5rem
+  h4, h5, h6
+    font-size: 1.2rem
 
 a
   color: $text-color
@@ -174,57 +194,12 @@ img
   height: auto
   margin: 2rem auto
 
-input[type=text]
+input[type=search]
   outline: none
   border: 1px solid $secondary-color
-  background-color: white
-  background-position: 5px 5px
-  background-repeat: no-repeat
+  background-color: $bg-color
   height: 40px
   box-sizing: border-box
-  padding: 5px 30px
-  transition: all .6s ease
   font-family: $secondary-font
   &:focus
     border: 1px solid $primary-color
-
-
-/* Util */
-
-.clearfix:after
-  content: ""
-  display: table
-  clear: both
-
-.max-width
-  max-width: 1200px
-  margin: 0 auto
-
-.show
-  opacity: 1
-  transition: opacity 0.3s ease
-
-.hide
-  opacity: 0
-  transition: opacity 0.1s ease
-
-.expanded
-  height: 200px
-  transition: height 0.3s ease 
-
-.minified
-  height: 70px
-  transition: height 0.3s ease
-
-.search-expanded
-  width: 200px
-  transition: width 0.3s ease 
-
-.search-minified
-  width: 0px
-  transition: width 0.3s ease 
-
-.clean-a
-  border: none
-  &:hover
-    background: none

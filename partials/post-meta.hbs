@@ -1,8 +1,14 @@
-<p>by {{author}}</p>
-<p>
-  <time class="post-date" datetime="{{date format=" YYYY-MM-DD "}}">{{date format="DD MMMM YYYY"}}<br/>({{date published_at timeago="true"}})</time>
-</p>
-<p><span class="tag-prefix">/</span> {{tags separator="<span class='tag-prefix'><br>/ </span>"}}</p>
+<span class="post-meta-author">
+  by {{author}}
+</span>
+
+<span class="post-meta-date">
+  <time class="post-date" datetime="{{date format=" YYYY-MM-DD "}}">{{date format="DD MMMM YYYY"}} ({{date published_at timeago="true"}})</time>
+</span>
+
+<span class="post-meta-tags">
+  <span class="tag-prefix">/</span> {{tags separator="<span class='tag-prefix'> / </span>"}}
+</span>
 
 <section id="meta-share">
   <a class="clean-a">
