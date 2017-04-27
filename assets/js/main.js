@@ -97,7 +97,7 @@ $(document).scroll(function() {
 
 $(document).scroll(function() {
     var y = $(this).scrollTop();
-    if (y > 600) {
+    if (y > 800) {
         $('#navigation').addClass('show');
         $('#navigation').removeClass('hide');
     }
