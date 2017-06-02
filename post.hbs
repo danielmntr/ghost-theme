@@ -7,17 +7,7 @@ template, containing the blog header/footer. --}}
 
 {{! Post Header }}
 <header id="post-head" class=" {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}">
-<figure class="post-head-wrap">
-  
-  <div id="scroll-to-text" class="post-scroll-wrap">
-    <p><strong>{{title}}</strong><br>by {{author}}</p>
-    <a href="#hitme" class="arctic_scroll" data-offset="-70">
-      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 20 20"><path d="M4.5 7.5c0.4-0.4 1-0.5 1.6 0l3.9 3.7 3.9-3.7c0.5-0.5 1.1-0.4 1.6 0 0.4 0.4 0.4 1.2 0 1.6-0.4 0.4-4.7 4.5-4.7 4.5-0.2 0.2-0.5 0.3-0.8 0.3s-0.6-0.1-0.8-0.3c0 0-4.3-4.1-4.7-4.5s-0.4-1.2 0-1.6z"/></svg>
-    </a>
-  </div>
-</figure>
 </header>
-<span id="hitme"></span>
 
 {{! Post Content }}
 <main id="content" class="content max-width" role="main">

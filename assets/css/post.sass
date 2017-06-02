@@ -1,43 +1,12 @@
 /* Post */
 
 #post-head
-  height: 100vh
+  height: 30vh
   overflow: hidden
   background: 0 0 no-repeat fixed
   background-size: cover
-  margin-bottom: 6em
-  border-bottom: 5em $secondary-color solid
-
-  .post-head-wrap
-    position: relative
-    height: 100vh
-    text-align: center
-    box-sizing: border-box
-    background: $lineargrad-tb
-    
-      
-    .post-scroll-wrap
-      position: absolute
-      max-width: 800px
-      left: 0
-      right: 0
-      bottom: 70px
-      margin: 0 auto
-      p 
-        font-family: $secondary-font
-        
-        color: $bg-color
-      a
-        @extend .clean-a
-        color: $bg-color
-        &:hover
-          color: $primary-color
-        svg
-          animation: color-arrow 6s infinite
-          fill: $bg-color
-          &:hover
-            fill: $primary-color
-
+  margin-bottom: 3em
+  border-bottom: 5em $secondary-color solid  
 
 #post-title
   h1
