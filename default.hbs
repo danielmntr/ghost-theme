@@ -26,10 +26,6 @@
   <link rel="icon" href="{{asset "favicon.ico"}}" />
 
   {{! Prerendering and Prefetching }}
-  {{#if @blog.cover}}
-  <link rel="prerender" href="{{@blog.cover}}" />
-  <link rel="prefetch" href="{{@blog.cover}}" />
-  {{/if}}
   <link rel="dns-prefetch" href="//fonts.googleapis.com/" />
 
   {{! Scripts and Stylesheets }}
@@ -77,9 +73,8 @@
 
   </footer>
 
-  {{! jQuery & ghostHunter }}
+  {{! jQuery }}
   <script type="text/javascript" src="{{asset "js/jquery-3.1.1.js"}}"></script>
-  <script type="text/javascript" src="{{asset "js/ghostHunter.js"}}"></script>
 
   {{! Webpack assets }}
   <script type="text/javascript" src="{{asset "dist/bundle.js"}}"></script>

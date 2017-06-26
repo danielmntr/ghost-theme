@@ -119,14 +119,3 @@ $(document).ready(function() {
         }
     });
 });
-
-/* search function */
-
-$(document).ready(function(){
-    $("#search-field").ghostHunter({
-        results: "#search-results-output",
-        includepages: true,
-        onKeyUp: true,
-        result_template : "<a href='{{link}}'><p>{{title}}<p></a>"
-    });  
-});

@@ -5,24 +5,20 @@
 
 {{!-- Everything inside the #author tags pulls data from the author --}}
 {{#author}}
-    <header class="main-header author-head {{#if cover}}" style="background-image: url({{cover}}){{else}}no-cover{{/if}}">
-        <nav class="main-nav overlay clearfix">
-            {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" /></a>{{/if}}
-            {{#if @blog.navigation}}
-                <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-            {{/if}}
-        </nav>
-    </header>
 
-    <section class="author-profile inner">
+<header id="index-header" class="pure-g">
+	<figure id="blog-cover" style="{{#if cover}}background-image: url({{cover}}){{else}}background-image: url({{@blog.cover}}){{/if}}"></figure>
+</header>
+
+<section class="author-profile max-width">
         {{#if image}}
         <figure class="author-image">
             <div class="img" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></div>
         </figure>
         {{/if}}
-        <h1 class="author-title">{{name}}</h1>
+        <h2 class="author-title">{{name}}</h2>
         {{#if bio}}
-            <h2 class="author-bio">{{bio}}</h2>
+            <p class="author-bio">{{bio}}</p>
         {{/if}}
         <div class="author-meta">
             {{#if location}}<span class="author-location icon-location">{{location}}</span>{{/if}}
@@ -33,7 +29,7 @@
 {{/author}}
 
 {{!-- The main content area on the homepage --}}
-<main class="content" role="main">
+<main class="content max-width" role="main">
 
     {{!-- The tag below includes the post loop - partials/loop.hbs --}}
     {{> "loop"}}
