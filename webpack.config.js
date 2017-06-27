@@ -22,13 +22,14 @@ module.exports = {
         ]
     },
     plugins: [
-      new webpack.LoaderOptionsPlugin({
-        options: {
-          context: __dirname,
-          postcss: [ autoprefixer ]
-        }
-      })
+        new webpack.LoaderOptionsPlugin({
+            options: {
+            context: __dirname,
+            postcss: [ autoprefixer ]
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {}
+        })
     ],
 }; // end config
-
-// ExtractTextPlugin.extract()

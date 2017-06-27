@@ -11,14 +11,16 @@
   <article class="{{post_class}} loop-article">
     <div class="wrapper">
 
-      <figure style="background-image: url({{image}})"></figure>
+      <a class="clean-a" href="{{url}}">
+        <figure style="background-image: url({{image}})"></figure>
+      </a>
 
       <header>
           <h6><a class="clean-a" href="{{url}}">{{title}}</a></h6>
       </header>
 
       <section>
-          <p>{{excerpt words="40"}} <a class="clean-a read-more" href="{{url}}">&raquo;</a></p>
+          <p>{{excerpt words="40"}} <span class="smaller">[&hellip;]</span></p>
       </section>
 
       <footer>
@@ -35,5 +37,3 @@
 
 {{!-- Previous/next page links - displayed on every page --}}
 {{pagination}}
-
-{{!-- <figure class="{{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}"> --}}

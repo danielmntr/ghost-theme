@@ -79,6 +79,7 @@ $(document).ready(function() {
 });
 
 /* nav hide/show */
+
 $(document).ready(function() {
     $(document).scroll(function() {
         var y = $(this).scrollTop();

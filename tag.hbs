@@ -7,6 +7,10 @@
 	<figure id="blog-cover" style="{{#if tag.image}}background-image: url({{tag.image}}){{else}}{{#if @blog.cover}}background-image: url({{@blog.cover}}){{else}}no-cover{{/if}}{{/if}}"></figure>
 </header>
 
+<section id="tag-page" class="max-width">
+	<h2 class="tag-name">{{tag.name}}</h2>
+</section>
+
 {{!-- The main content area on the homepage --}}
 <main class="content max-width" role="main">
 

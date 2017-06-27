@@ -1,6 +1,6 @@
 {
-  "name": "wip",
-  "version": "0.9b",
+  "name": "Station to Station",
+  "version": "0.9",
   "description": "Ghost Theme",
   "author": "Daniel Monteiro",
   "repository": {
@@ -19,6 +19,8 @@
     "sass-loader": "^4.1.1",
     "script-loader": "^0.7.0",
     "style-loader": "^0.13.1",
+    "uglify-js": "^3.0.20",
+    "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^2.2.1"
   }
 }

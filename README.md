@@ -1,32 +1,30 @@
-# WIP THEME
+# Station to Station, a theme for Ghost.
 
-An elegant theme for [Ghost](https://ghost.org/) by Daniel Monteiro.
+A minimalist theme for [Ghost](https://ghost.org/) by Daniel Monteiro.
 
 ***
 
 ## Demo
 
-* [Blog](http://bleak.zutrinken.com)
-* [Post](http://bleak.zutrinken.com/demo)
-* [Tags](http://bleak.zutrinken.com/tag/general)
-* [Author](http://bleak.zutrinken.com/author/zutrinken)
+* [Blog](https://station2station.herokuapp.com/)
+* [Post](https://station2station.herokuapp.com/welcome-to-ghost/)
 
 ## Features
 
-* Responsive layout
-* Blog navigation
-* Post navigation
-* Cover images for blog, tag and author archives
-* Featured posts style
-* Automatic code syntax highlight and line numbers
-* Disqus support
-* Sharing buttons
+* Responsive layout.
+* Blog navigation.
+* Post navigation.
+* Cover images for blog, post, tag and author archives.
+* Front page featured post.
+* Disqus support.
+* Sharing buttons.
+* Source SASS files included.
 
 ## Setup
 
 To enable [Disqus](https://disqus.com/) comments go to your blogs code injection settings and add the following to your blog header:
 
-```javascript
+```
 <script>
 (function() { // DON'T EDIT BELOW THIS LINE
 var d = document, s = d.createElement('script');
@@ -37,32 +35,17 @@ s.setAttribute('data-timestamp', +new Date());
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 ```
+*Note: Replace 'YOUR-WEBSITE-SHORTNAME' with your community shortname found on disqus.com*
 
 ## Development
 
-Install [Grunt](http://gruntjs.com/getting-started/):
-
-	npm install -g grunt-cli
-	
-Install Grunt modules:
+Install devDependencies:
 
 	npm install
+	
+Autobuild webpack project:
 
-Install [Bower](http://bower.io):
-
-	npm install -g bower
-
-Install Bower components:
-
-	bower install
-
-Build Grunt project:
-
-	grunt
-
-Distribute Grunt project:
-
-	grunt build
+	webpack --watch --progress --colors
 
 ## Copyright & License
 

@@ -2,10 +2,12 @@
 
 #index-header
   #blog-cover
-    height: 30vh
-    width: 100vw
+    height: 200px
+    width: 100%
+    max-width: 1920px
     background-size: cover
     background-position: center
+    margin: 0 auto
     margin-bottom: 6rem
     border-bottom: 5rem $secondary-color solid
 
@@ -28,6 +30,11 @@
   .featured-article
     figure
       height: 200px
+
+@media screen and (max-width: 35.5em)
+  #index-header
+    #blog-cover
+      height: 0px
 
 /* Loop */
 
@@ -73,5 +80,3 @@
       display: block
       p 
         font-family: $secondary-font
-
-
