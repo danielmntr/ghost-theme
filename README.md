@@ -22,6 +22,8 @@ A minimalist theme for [Ghost](https://ghost.org/) by Daniel Monteiro.
 
 ## Setup
 
+After uploading the theme, go to Settings > Labs and select the Beta Feature 'Public API'.
+
 To enable [Disqus](https://disqus.com/) comments go to your blogs code injection settings and add the following to your blog header:
 
 ```

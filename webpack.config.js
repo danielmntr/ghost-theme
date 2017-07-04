@@ -11,13 +11,18 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/, use: ['style-loader', 'css-loader', 'postcss-loader']
+                test: /\.css$/, use: ['style-loader', 'css-loader', 'resolve-url-loader', 
+                'postcss-loader']
             },
             {
-                test: /\.sass$/, use: ['style-loader', 'css-loader', 'sass-loader?indentedSyntax', 'postcss-loader']
+                test: /\.sass$/, use: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader?indentedSyntax?sourceMap', 'postcss-loader']
             },
             {
-                test: /\.(jpe?g|png|gif|svg)$/i, use: ['file?hash=sha512&digest=hex&name=[hash].[ext]', 'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false']
+                test: /\.(jpe?g|png|gif|svg)$/i, use: ['file-loader?hash=sha512&digest=hex&name=[hash].[ext]', 'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false']
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                use: ['file-loader']
             }
         ]
     },
@@ -28,8 +33,6 @@ module.exports = {
             postcss: [ autoprefixer ]
             }
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {}
-        })
+        
     ],
-}; // end config
+};

@@ -7,11 +7,12 @@
 	<figure id="blog-cover" style="{{#if @blog.cover}}background-image: url({{@blog.cover}}){{else}}background-image: url({{image}}){{/if}}"></figure>
 </header>
 
-{{#get "posts" limit="1" include="tags, author, image" filter="featured:true"}}
+<section class="max-width slick">
+
+{{#get "posts" limit="4" include="tags, author, image" filter="featured:true"}}
 {{#foreach posts}}
 
-<div class="pure-g max-width">
-	<article class="{{post_class}} featured-article">
+	<article class="{{post_class}} featured-article pure-g">
 
 		<section class="pure-u-1 pure-u-md-1-2">
 			<div class="wrapper">
@@ -40,12 +41,11 @@
 		</section>
 
 	</article>
-</div>
 
 {{/foreach}}
 {{/get}}
-	
 
+</section>
 
 {{!-- The main content area on the homepage --}}
 <main class="content max-width" role="main">

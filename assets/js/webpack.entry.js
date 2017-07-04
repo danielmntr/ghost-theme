@@ -1,7 +1,11 @@
+// Load Fonts
+
 // Load stylesheets
-// require("../css/screen.css");
+require("../css/slick.css");
+require("../css/slick-theme.css");
 require("../css/style.sass");
 
-// Load default scripts
-require("./main.js");
 
+// Load default scripts
+require("./slick.js");
+require("./main.js");

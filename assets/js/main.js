@@ -120,3 +120,11 @@ $(document).ready(function() {
         }
     });
 });
+
+/* carousel */
+
+$('.slick').slick({
+    autoplay: true,
+    arrows: false,
+    dots: true
+});
