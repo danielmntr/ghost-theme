@@ -126,5 +126,6 @@ $(document).ready(function() {
 $('.slick').slick({
     autoplay: true,
     arrows: false,
-    dots: true
+    dots: true,
+    fade: true
 });

@@ -11,14 +11,36 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/, use: ['style-loader', 'css-loader', 'resolve-url-loader', 
-                'postcss-loader']
+                test: /\.css$/, 
+                use: [ 'style-loader', 'css-loader?minimize=true', 'postcss-loader?sourceMap']
             },
             {
-                test: /\.sass$/, use: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader?indentedSyntax?sourceMap', 'postcss-loader']
+                test: /\.sass$/, 
+                use: ['style-loader', 'css-loader?minimize=true', 'postcss-loader?sourceMap', 'sass-loader?indentedSyntax&sourceMap']
             },
             {
-                test: /\.(jpe?g|png|gif|svg)$/i, use: ['file-loader?hash=sha512&digest=hex&name=[hash].[ext]', 'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false']
+                test: /\.(jpe?g|png|gif|svg)$/i, 
+                use: [
+                    {
+                        loader: 'file-loader', 
+                        options: {
+                            name: '[hash].[ext]'
+                        }
+                    },
+                    {
+                        loader: 'image-webpack-loader', 
+                        options: {
+                            gifsicle: { 
+                                optimizationLevel: 7, 
+                                interlaced: false
+                            }, 
+                            optipng: {
+                                optimizationLevel: 7,
+                                interlaced: false
+                            }
+                        }
+                    }
+                ]
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -33,6 +55,10 @@ module.exports = {
             postcss: [ autoprefixer ]
             }
         }),
-        
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        }),
     ],
 };
