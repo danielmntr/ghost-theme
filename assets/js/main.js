@@ -12,19 +12,25 @@
         var options = $.extend(defaults, options),
             to_scroll = options.scroll_selector;
 
-        options.elem.click(function(event){
+        options.elem.click(function (event) {
             event.preventDefault();
             var offset = ($(this).attr('data-offset')) ? $(this).attr('data-offset') : false,
                 position = ($(this).attr('data-position')) ? $(this).attr('data-position') : false;
 
             if (offset) {
                 var toMove = parseInt(offset);
-                $(options.scroll_selector).stop(true, false).animate({scrollTop: ($(this.hash).offset().top + toMove) }, options.speed);
+                $(options.scroll_selector).stop(true, false).animate({
+                    scrollTop: ($(this.hash).offset().top + toMove)
+                }, options.speed);
             } else if (position) {
                 var toMove = parseInt(position);
-                $(options.scroll_selector).stop(true, false).animate({scrollTop: toMove }, options.speed);
+                $(options.scroll_selector).stop(true, false).animate({
+                    scrollTop: toMove
+                }, options.speed);
             } else {
-                $(options.scroll_selector).stop(true, false).animate({scrollTop: ($(this.hash).offset().top) }, options.speed);
+                $(options.scroll_selector).stop(true, false).animate({
+                    scrollTop: ($(this.hash).offset().top)
+                }, options.speed);
             }
         });
 
@@ -39,9 +45,9 @@ $(function(){
 
 /* expand top nav */
 
-$(document).ready(function() {
+$(document).ready(function () {
     var clicked = false;
-    $("#menu-button").click(function() {
+    $("#menu-button").click(function () {
         if (!clicked) {
             $('#top-navigation').addClass('expanded');
             $('#top-navigation').removeClass('minified');
@@ -64,29 +70,25 @@ $(document).ready(function() {
 
 /* expand & close search box */
 
-$(document).ready(function() {
-
-    $("#search-placeholder").click(function(e) {
+$(document).ready(function () {
+    $("#search-placeholder").click(function (e) {
         $('#search,#search-box').addClass('show');
         $('#search,#search-box').removeClass('hidden hide');
     });
-
-    $("#search-close").click(function(e) {
+    $("#search-close").click(function (e) {
         $('#search,#search-box').removeClass('show');
         $('#search,#search-box').addClass('hide hidden');
     });
-
 });
 
 /* nav hide/show */
 
-$(document).ready(function() {
-    $(document).scroll(function() {
+$(document).ready(function () {
+    $(document).scroll(function () {
         var y = $(this).scrollTop();
-        if (y > 900) {
+        if (y > 800) {
             $('#navigation').removeClass('hide');
-        }
-        else {
+        } else {
             $('#navigation').addClass('hide');
         }
     });

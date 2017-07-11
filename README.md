@@ -1,6 +1,6 @@
 # Station to Station, a theme for Ghost.
 
-A minimalist theme for [Ghost](https://ghost.org/) by Daniel Monteiro.
+A minimalist blog theme for [Ghost](https://ghost.org/) by Daniel Monteiro.
 
 ***
 
@@ -11,14 +11,19 @@ A minimalist theme for [Ghost](https://ghost.org/) by Daniel Monteiro.
 
 ## Features
 
-* Responsive layout.
+* Clean responsive layout.
+* Lightweight and minimal.
+* Swipe enabled.
 * Blog navigation.
 * Post navigation.
 * Cover images for blog, post, tag and author archives.
-* Front page featured post.
+* Front page featured posts slider.
 * Disqus support.
-* Sharing buttons.
-* Source SASS files included.
+* Post sharing on Facebook, Twitter & Google+.
+* Source Sass & Webpack files included.
+* jQuery compatible.
+* Built on top of Yahoo's PureCSS framework.
+* Google Web Fonts.
 
 ## Setup
 
