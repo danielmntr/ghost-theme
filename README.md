@@ -12,17 +12,19 @@ A minimalist blog theme for [Ghost](https://ghost.org/) by Daniel Monteiro.
 ## Features
 
 * Clean responsive layout.
-* Lightweight and minimal.
-* Swipe enabled.
+* Lightweight and minimal with a minimal footprint.
+* Frontpage swipe enabled.
 * Blog navigation.
-* Post navigation.
+* Next and previous post navigation.
 * Cover images for blog, post, tag and author archives.
 * Front page featured posts slider.
-* Disqus support.
+* [Disqus](https://disqus.com/) comments support.
 * Post sharing on Facebook, Twitter & Google+.
+* Easily modifiable theme with various colour schemes included.
 * Source Sass & Webpack files included.
+* Built with [Webpack 3.0](https://webpack.js.org/)
+* Built on top of [Yahoo's PureCSS framework](https://purecss.io/) (v0.6.2).
 * jQuery compatible.
-* Built on top of Yahoo's PureCSS framework.
 * Google Web Fonts.
 
 ## Setup
